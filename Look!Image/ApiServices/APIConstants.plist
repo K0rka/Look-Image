@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ApiKey</key>
+	<string>48c7b0d31dc9ebd8a2c0f0ca820c61e5</string>
+	<key>BaseURL</key>
+	<string>https://api.flickr.com/services/rest/</string>
+	<key>PhotoPath</key>
+	<string>flickr.photos.getInfo</string>
+	<key>InterestingPath</key>
+	<string>flickr.interestingness.getList</string>
+	<key>SearchPath</key>
+	<string>flickr.photos.search</string>
+	<key>RecentPath</key>
+	<string>flickr.photos.getRecent</string>
+</dict>
+</plist>
