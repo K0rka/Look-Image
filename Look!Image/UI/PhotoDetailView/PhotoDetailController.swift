@@ -8,15 +8,10 @@
 
 import UIKit
 import SDWebImage
+import GSImageViewerController
 
 class PhotoDetailController: UIViewController, UIScrollViewDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let photoToShow = photoToShow {
@@ -33,7 +28,6 @@ class PhotoDetailController: UIViewController, UIScrollViewDelegate {
     var photoToShow: Photo?
     
     
-    
     func display(photo: Photo) {
         photoImageView.sd_setImage(with: URL(string: photo.url), completed: nil)
         titleLabel.text = photo.title
@@ -48,6 +42,20 @@ class PhotoDetailController: UIViewController, UIScrollViewDelegate {
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: view.safeAreaInsets.bottom, right: 0)
     }
     
+    @IBAction func didTapImage() {
+        if let photo = photoToShow, let image = photoImageView.image {
+            let imageInfo      = GSImageInfo(image: image, imageMode: .aspectFit, imageHD: URL(string: photo.url))
+            let transitionInfo = GSTransitionInfo(fromView: photoImageView)
+            let imageViewer    = GSImageViewerController(imageInfo: imageInfo, transitionInfo: transitionInfo)
+            present(imageViewer, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func openOnFlickr(_ sender: Any) {
+        if let url = URL(string: photoToShow?.flickrPageUrl ?? "") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
     //MARK: - Scroll View Delegate
     
     private var previousStatusBarHidden = false

@@ -225,7 +225,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2u-QK-MDF">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2u-QK-MDF">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ffc-sv-9Rf" userLabel="ImageContainer">
@@ -236,41 +236,62 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="262.5"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qrH-Dj-aIx" userLabel="TextsContainer">
-                                        <rect key="frame" x="0.0" y="262.5" width="375" height="58.5"/>
+                                        <rect key="frame" x="0.0" y="262.5" width="375" height="84.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pq-vr-aB7">
-                                                <rect key="frame" x="16" y="10" width="343" height="19.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pq-vr-aB7">
+                                                <rect key="frame" x="16" y="10" width="45" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <color key="textColor" red="0.3294117647" green="0.29803921570000003" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xQ-A3-KMH">
-                                                <rect key="frame" x="16" y="37.5" width="343" height="16"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <rect key="frame" x="16" y="61.5" width="343" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.3294117647" green="0.29803921570000003" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDG-Kr-gaf">
+                                                <rect key="frame" x="259" y="6" width="100" height="30"/>
+                                                <state key="normal" title="Open on Flickr">
+                                                    <color key="titleColor" red="0.0" green="0.84313725490000002" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="openOnFlickr:" destination="kBO-WQ-iCa" eventType="touchUpInside" id="Kpv-bd-g1G"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="1pq-vr-aB7" firstAttribute="top" secondItem="qrH-Dj-aIx" secondAttribute="top" constant="10" id="2cQ-f9-NbX"/>
                                             <constraint firstAttribute="trailing" secondItem="0xQ-A3-KMH" secondAttribute="trailing" constant="16" id="59A-1m-5DI"/>
-                                            <constraint firstItem="0xQ-A3-KMH" firstAttribute="top" secondItem="1pq-vr-aB7" secondAttribute="bottom" constant="8" id="6QD-ZS-Akf"/>
+                                            <constraint firstItem="0xQ-A3-KMH" firstAttribute="top" secondItem="1pq-vr-aB7" secondAttribute="bottom" constant="30" id="6QD-ZS-Akf"/>
                                             <constraint firstItem="1pq-vr-aB7" firstAttribute="leading" secondItem="qrH-Dj-aIx" secondAttribute="leading" constant="16" id="Vsp-ye-R6x"/>
-                                            <constraint firstAttribute="trailing" secondItem="1pq-vr-aB7" secondAttribute="trailing" constant="16" id="Y3w-3N-KlV"/>
+                                            <constraint firstItem="FDG-Kr-gaf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1pq-vr-aB7" secondAttribute="trailing" constant="16" id="bo2-8A-zb8"/>
+                                            <constraint firstItem="FDG-Kr-gaf" firstAttribute="centerY" secondItem="1pq-vr-aB7" secondAttribute="centerY" id="ctC-tx-wwT"/>
+                                            <constraint firstAttribute="trailing" secondItem="FDG-Kr-gaf" secondAttribute="trailing" constant="16" id="djI-FN-cdv"/>
                                             <constraint firstItem="0xQ-A3-KMH" firstAttribute="leading" secondItem="qrH-Dj-aIx" secondAttribute="leading" constant="16" id="eNJ-fD-GFO"/>
                                             <constraint firstAttribute="bottom" secondItem="0xQ-A3-KMH" secondAttribute="bottom" constant="5" id="eSR-J4-AEP"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqV-Us-YAR">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="262.5"/>
+                                        <connections>
+                                            <action selector="didTapImage" destination="kBO-WQ-iCa" eventType="touchUpInside" id="fuG-xU-vyj"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="iqV-Us-YAR" firstAttribute="bottom" secondItem="ZUB-8b-NJV" secondAttribute="bottom" id="5SI-Bz-4gj"/>
                                     <constraint firstItem="Ffc-sv-9Rf" firstAttribute="top" secondItem="u2u-QK-MDF" secondAttribute="top" id="7F9-jl-0K2"/>
+                                    <constraint firstItem="iqV-Us-YAR" firstAttribute="width" secondItem="ZUB-8b-NJV" secondAttribute="width" id="Y9x-Jt-ve5"/>
                                     <constraint firstItem="ZUB-8b-NJV" firstAttribute="leading" secondItem="Ffc-sv-9Rf" secondAttribute="leading" id="ZZV-AX-X6f"/>
                                     <constraint firstAttribute="bottom" secondItem="qrH-Dj-aIx" secondAttribute="bottom" constant="10" id="aul-yI-9bd"/>
+                                    <constraint firstItem="iqV-Us-YAR" firstAttribute="leading" secondItem="ZUB-8b-NJV" secondAttribute="leading" id="b8G-1P-ne6"/>
                                     <constraint firstItem="ZUB-8b-NJV" firstAttribute="trailing" secondItem="Ffc-sv-9Rf" secondAttribute="trailing" id="bC6-Gn-zJi"/>
                                     <constraint firstItem="ZUB-8b-NJV" firstAttribute="height" relation="greaterThanOrEqual" secondItem="Ffc-sv-9Rf" secondAttribute="height" id="gof-fs-gqo"/>
                                     <constraint firstItem="ZUB-8b-NJV" firstAttribute="bottom" secondItem="Ffc-sv-9Rf" secondAttribute="bottom" id="hty-vL-YbB"/>
                                     <constraint firstItem="qrH-Dj-aIx" firstAttribute="top" secondItem="Ffc-sv-9Rf" secondAttribute="bottom" id="roW-Sm-85q"/>
+                                    <constraint firstItem="iqV-Us-YAR" firstAttribute="top" secondItem="ZUB-8b-NJV" secondAttribute="top" id="szU-vF-Zkb"/>
                                 </constraints>
                             </scrollView>
                         </subviews>

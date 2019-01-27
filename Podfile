@@ -9,6 +9,7 @@ target 'Look!Image' do
 	pod "SwiftyXMLParser", :git => 'https://github.com/yahoojapan/SwiftyXMLParser.git'
 	pod 'Alamofire'
 	pod 'SDWebImage'
+	pod "GSImageViewerController"
 
   target 'Look!ImageTests' do
     inherit! :search_paths
