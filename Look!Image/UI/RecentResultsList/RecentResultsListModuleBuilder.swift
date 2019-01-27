@@ -1,27 +1,28 @@
 //
-//  SearchResultsLisModuleBuilder.swift
+//  RecentResultsListModuleBuilder.swift
 //  Look!Image
 //
-//  Created  on 20/1/2562 BE.
+//  Created by Catherine Korovkina on 27/1/2562 BE.
 //  Copyright © 2562 snm. All rights reserved.
 //
 
 import Foundation
 
-class InterestingViewModuleInitializer: NSObject {
+
+class RecentResultsListModuleInitializer: NSObject {
     @IBOutlet weak var viewController: PhotosListController!
     
     override func awakeFromNib() {
-        InterestingResultsListModuleBuilder().build(for: viewController)
+        RecentResultsListModuleBuilder().build(for: viewController)
     }
 }
 
 
-class InterestingResultsListModuleBuilder {
+class RecentResultsListModuleBuilder {
     
     func build(for viewController: PhotosListController) {
         let presenter = PhotosListPresenter()
-        let interactor = InterestingResultsListInteractor()
+        let interactor = RecentResultsListInteractor()
         let networkProvider = NetworkProvidersFactory().flickrNetworkProvider()
         interactor.networkProvider = networkProvider
         interactor.presenter = presenter

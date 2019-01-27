@@ -55,9 +55,9 @@ class PhotosMapperImplementation: PhotosMapper {
                           title: name,
                           tags: tags,
                           description: description,
-                          url: "https://farm\(farm).staticflickr.com/\(server)/\(id)_\(secret).jpg"
-
-                          )
+                          url: "https://farm\(farm).staticflickr.com/\(server)/\(id)_\(secret).jpg",
+            flickrPageUrl: url
+        )
         
         return photo
     }

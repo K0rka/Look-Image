@@ -8,17 +8,17 @@
 
 import Foundation
 
-protocol InterestingResultsListInteractorOutput: class {
-    func didLoadInterestingResults(_ photos: [Photo])
+protocol PhotosListInteractorOutput: class {
+    func didLoadPhotosList(_ photos: [Photo])
     func didUpdatePhotoInfo(photo: Photo)
     func didFailToLoadResults()
 }
 
-protocol InterestingResultsListInteractorInput {
-    func fetchInteresting()
+protocol PhotosListInteractorInput {
+    func fetchPhotosList()
 }
 
-protocol InterestingResultsListViewInput: class {
+protocol PhotosListViewInput: class {
     func showResults(_ flightSearchResults: [Photo])
     func updatePhoto(index: Int, photoInfo: Photo)
     func showNoResultsView() 

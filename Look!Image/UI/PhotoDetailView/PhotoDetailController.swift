@@ -38,6 +38,7 @@ class PhotoDetailController: UIViewController, UIScrollViewDelegate {
         photoImageView.sd_setImage(with: URL(string: photo.url), completed: nil)
         titleLabel.text = photo.title
         descriptionLabel.text = photo.description
+        scrollView.contentSize = CGSize(width: view.frame.width, height: max(view.frame.height, scrollView.contentSize.height))
     }
 
     override func viewDidLayoutSubviews() {

@@ -25,6 +25,7 @@ struct Photo: ShortPhoto {
     var description: String = ""
 //    var date: Date
     var url: String = ""
+    var flickrPageUrl: String = ""
     
     init(id: String, title: String) {
         self.id = id
@@ -39,7 +40,8 @@ struct Photo: ShortPhoto {
          title: String,
          tags: [String],
          description: String,
-         url: String) {
+         url: String,
+         flickrPageUrl: String) {
         self.id = id
         self.server = server
         self.format = format
@@ -49,6 +51,7 @@ struct Photo: ShortPhoto {
         self.title = title
         self.farm = farm
         self.url = url
+        self.flickrPageUrl = flickrPageUrl
     }
     
 }

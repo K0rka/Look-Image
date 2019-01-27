@@ -8,13 +8,13 @@
 
 import Foundation
 
-class InterestingResultsListPresenter: InterestingResultsListViewOutput, InterestingResultsListInteractorOutput {
+class PhotosListPresenter: InterestingResultsListViewOutput, PhotosListInteractorOutput {
     
 
 
 
-    weak var view: InterestingResultsListViewInput?
-    var interactor: InterestingResultsListInteractorInput!
+    weak var view: PhotosListViewInput?
+    var interactor: PhotosListInteractorInput!
     var shownPhotos: [ShortPhoto]?
     
     let dateFormatter: DateFormatter = {
@@ -24,7 +24,7 @@ class InterestingResultsListPresenter: InterestingResultsListViewOutput, Interes
     }()
     
     func viewIsReady() {
-        interactor.fetchInteresting()
+        interactor.fetchPhotosList()
         view?.showLoading()
     }
 
@@ -33,7 +33,7 @@ class InterestingResultsListPresenter: InterestingResultsListViewOutput, Interes
         view?.showNoResultsView()
     }
     
-    func didLoadInterestingResults(_ photos: [Photo]) {
+    func didLoadPhotosList(_ photos: [Photo]) {
         shownPhotos = photos
         if photos.isEmpty {
             view?.showNoResultsView()

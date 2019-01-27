@@ -8,10 +8,10 @@
 
 import UIKit
 
-class InterestingResultsListController: UIViewController,
+class PhotosListController: UIViewController,
     UITableViewDelegate,
     UITableViewDataSource,
-InterestingResultsListViewInput {
+PhotosListViewInput {
 
     @IBOutlet weak var numberOfResultsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
