@@ -27,4 +27,5 @@ protocol PhotosListViewInput: class {
 
 protocol PhotosListViewOutput {
     func viewIsReady()
+    func reloadResults()
 }

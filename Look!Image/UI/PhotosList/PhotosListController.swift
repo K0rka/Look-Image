@@ -25,6 +25,11 @@ PhotosListViewInput {
         tableView.estimatedRowHeight = 230
         tableView.rowHeight = UITableView.automaticDimension
         presenter?.viewIsReady()
+        let pullToRefresh = UIRefreshControl()
+        tableView.refreshControl = pullToRefresh
+        pullToRefresh.addTarget(self, action:
+            #selector(PhotosListController.handleRefresh(_:)),
+                                for: UIControl.Event.valueChanged)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,12 +60,14 @@ PhotosListViewInput {
     }
     
     func showNoResultsView() {
+        tableView.refreshControl?.endRefreshing()
         emptyView.isHidden = false
         loadingView.isHidden = true
         tableView.isHidden = true
     }
     
     func showResults(_ photos: [Photo]) {
+        tableView.refreshControl?.endRefreshing()
         emptyView.isHidden = true
         loadingView.isHidden = true
         tableView.isHidden = false
@@ -79,6 +86,11 @@ PhotosListViewInput {
             controller.photoToShow = interestingResults[indexPAth.row]
             selectedIndexPath = nil
         }
+    }
+    
+    @objc func handleRefresh(_ refresh: UIRefreshControl) {
+        refresh.beginRefreshing()
+        presenter?.reloadResults()
     }
 }
 

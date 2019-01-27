@@ -19,6 +19,10 @@ class PhotosListPresenter: PhotosListViewOutput, PhotosListInteractorOutput {
         view?.showLoading()
     }
 
+    func reloadResults() {
+        interactor.fetchPhotosList()
+    }
+    
     func didFailToLoadResults() {
         view?.showNoResultsView()
     }

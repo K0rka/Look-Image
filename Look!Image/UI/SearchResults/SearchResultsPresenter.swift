@@ -17,6 +17,10 @@ class SearchResultsPresenter: SearchResultsListViewOutput, PhotosListInteractorO
         //We don't need to do anything here for now
     }
     
+    func reloadResults() {
+        //We don't need to do anything here for now
+    }
+    
     func searchRequestDidChange(searchRequest: String) {
         interactor.fetchPhotosList(for: searchRequest)
         view?.showLoading()

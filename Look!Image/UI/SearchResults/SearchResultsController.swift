@@ -17,6 +17,7 @@ class SearchResultsController: PhotosListController, UISearchBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
+        tableView.refreshControl = nil
         if interestingResults.isEmpty {
             showTip()
         }
@@ -50,13 +51,19 @@ class SearchResultsController: PhotosListController, UISearchBarDelegate {
         super.showResults(photos)
     }
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("")
-    }
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchPresenter?.searchRequestDidChange(searchRequest: searchBar.text ?? "")
-
     }
+    
+    
+    @IBAction func emptySpaceTapped(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
+
 }

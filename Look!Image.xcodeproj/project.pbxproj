@@ -221,24 +221,23 @@
 			isa = PBXGroup;
 			children = (
 				5110A34221FDC22000ECBE3F /* SearchResults */,
-				5110A33B21FDA84100ECBE3F /* RecentResultsList */,
 				5110A33821FB811500ECBE3F /* PhotoDetailView */,
-				5110A32521FB093400ECBE3F /* InterestingResultsList */,
+				5110A32521FB093400ECBE3F /* PhotosList */,
 				5110A33621FB104900ECBE3F /* PhotoCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
 		};
-		5110A32521FB093400ECBE3F /* InterestingResultsList */ = {
+		5110A32521FB093400ECBE3F /* PhotosList */ = {
 			isa = PBXGroup;
 			children = (
+				5110A33B21FDA84100ECBE3F /* RecentResultsList */,
+				5110A34D21FE0B4800ECBE3F /* Interesting */,
 				5110A32621FB093400ECBE3F /* PhotosListPresenter.swift */,
 				5110A32821FB093400ECBE3F /* PhotosListController.swift */,
-				5110A32921FB093400ECBE3F /* InterestingResultsListInteractor.swift */,
 				5110A32A21FB093400ECBE3F /* PhotosListProtocols.swift */,
-				5110A32B21FB093400ECBE3F /* InterestingResultsListModuleBuilder.swift */,
 			);
-			path = InterestingResultsList;
+			path = PhotosList;
 			sourceTree = "<group>";
 		};
 		5110A33821FB811500ECBE3F /* PhotoDetailView */ = {
@@ -268,6 +267,15 @@
 				5110A34B21FDC43100ECBE3F /* SearchResultsInteractor.swift */,
 			);
 			path = SearchResults;
+			sourceTree = "<group>";
+		};
+		5110A34D21FE0B4800ECBE3F /* Interesting */ = {
+			isa = PBXGroup;
+			children = (
+				5110A32921FB093400ECBE3F /* InterestingResultsListInteractor.swift */,
+				5110A32B21FB093400ECBE3F /* InterestingResultsListModuleBuilder.swift */,
+			);
+			path = Interesting;
 			sourceTree = "<group>";
 		};
 		6B12F3117301F6AF55FAAE31 /* Pods */ = {
