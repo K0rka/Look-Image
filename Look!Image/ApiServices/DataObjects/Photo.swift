@@ -16,9 +16,39 @@ protocol ShortPhoto {
 
 struct Photo: ShortPhoto {
     var id: String
-    var title: String
+    var secret: String = ""
+    var format: String = ""
+    var farm: String = ""
+    var server: String = ""
+    var title: String = ""
     var tags: [String] = []
     var description: String = ""
 //    var date: Date
     var url: String = ""
+    
+    init(id: String, title: String) {
+        self.id = id
+        self.title = title
+    }
+    
+    init(id: String,
+         secret: String,
+         format: String,
+         farm: String,
+         server: String,
+         title: String,
+         tags: [String],
+         description: String,
+         url: String) {
+        self.id = id
+        self.server = server
+        self.format = format
+        self.secret = secret
+        self.tags = tags
+        self.description = description
+        self.title = title
+        self.farm = farm
+        self.url = url
+    }
+    
 }

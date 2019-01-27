@@ -23,7 +23,7 @@ InterestingResultsListViewInput {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 180
         tableView.rowHeight = UITableView.automaticDimension
         presenter.viewIsReady()
     }
@@ -42,6 +42,12 @@ InterestingResultsListViewInput {
         return cell
     }
     
+    var selectedIndexPath: IndexPath?
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
+        tableView.deselectRow(at: indexPath, animated: false)
+        performSegue(withIdentifier: "showPhotoDetails", sender: nil)
+    }
     
     func showLoading() {
         emptyView.isHidden = true
@@ -66,6 +72,15 @@ InterestingResultsListViewInput {
     func updatePhoto(index: Int, photoInfo: Photo) {
         interestingResults[index] = photoInfo
         tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? PhotoDetailController,
+            let indexPAth = selectedIndexPath {
+            controller.photoToShow = interestingResults[indexPAth.row]
+            selectedIndexPath = nil
+            
+        }
     }
 }
 
