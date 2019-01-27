@@ -25,6 +25,6 @@ protocol PhotosListViewInput: class {
     func showLoading()
 }
 
-protocol InterestingResultsListViewOutput {
+protocol PhotosListViewOutput {
     func viewIsReady()
 }

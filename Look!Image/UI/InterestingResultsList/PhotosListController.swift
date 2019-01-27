@@ -13,19 +13,18 @@ class PhotosListController: UIViewController,
     UITableViewDataSource,
 PhotosListViewInput {
 
-    @IBOutlet weak var numberOfResultsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var loadingView: UIView!
     
-    var presenter: InterestingResultsListViewOutput!
+    var presenter: PhotosListViewOutput?
     var interestingResults = [Photo]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.estimatedRowHeight = 180
+        tableView.estimatedRowHeight = 230
         tableView.rowHeight = UITableView.automaticDimension
-        presenter.viewIsReady()
+        presenter?.viewIsReady()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,7 +78,6 @@ PhotosListViewInput {
             let indexPAth = selectedIndexPath {
             controller.photoToShow = interestingResults[indexPAth.row]
             selectedIndexPath = nil
-            
         }
     }
 }

@@ -1,24 +1,27 @@
 //
-//  InterestingResultsListPresenter.swift
+//  SearchResultsPresenter.swift
 //  Look!Image
 //
-//  Created  on 18/1/2562 BE.
+//  Created by Catherine Korovkina on 27/1/2562 BE.
 //  Copyright © 2562 snm. All rights reserved.
 //
 
 import Foundation
 
-class PhotosListPresenter: PhotosListViewOutput, PhotosListInteractorOutput {
-
+class SearchResultsPresenter: SearchResultsListViewOutput, PhotosListInteractorOutput {
     weak var view: PhotosListViewInput?
-    var interactor: PhotosListInteractorInput!
+    var interactor: SearchListInteractorInput!
     var shownPhotos: [ShortPhoto]?
     
     func viewIsReady() {
-        interactor.fetchPhotosList()
+        //We don't need to do anything here for now
+    }
+    
+    func searchRequestDidChange(searchRequest: String) {
+        interactor.fetchPhotosList(for: searchRequest)
         view?.showLoading()
     }
-
+    
     func didFailToLoadResults() {
         view?.showNoResultsView()
     }
@@ -39,6 +42,5 @@ class PhotosListPresenter: PhotosListViewOutput, PhotosListInteractorOutput {
             self.view?.updatePhoto(index: index, photoInfo: photo)
         }
     }
-    
     
 }
